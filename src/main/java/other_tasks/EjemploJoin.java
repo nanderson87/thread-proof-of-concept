@@ -1,4 +1,4 @@
-package thread_state.other_tasks;
+package other_tasks;
 
 import java.util.stream.IntStream;
 

@@ -1,13 +1,13 @@
-package thread_state.other_tasks;
+package other_tasks;
 
-public class EjemploSleep {
-  public static void main(String[] args) throws InterruptedException {
+public class EjemploInterrupcion {
+  public static void main(String[] args) {
 
     Runnable r = () -> {
       String name = Thread.currentThread().getName();
-      int contador = 0;
+      int count = 0;
       while (!Thread.interrupted())
-        System.out.println(name + " : " + contador++);
+        System.out.println(name + ": " + count++);
     };
 
     Thread thdA = new Thread(r);
@@ -16,19 +16,15 @@ public class EjemploSleep {
     thdA.start();
     thdB.start();
 
-    try
-    {
-      Thread.sleep(500);
-    }
-    catch (InterruptedException ie)
-    {
-      //Nunca se va a llamar para.
+    while (true) {
+      double n = Math.random();
+      if (n >= 0.49999999 && n <= 0.50000001)
+        break;
     }
 
     thdA.interrupt();
     thdB.interrupt();
 
-    Thread.sleep(500);
 
     System.out.println("name:" + thdA.getName() + ": " + thdA.isAlive() + ", " + thdA.getState());
     System.out.println("name:" + thdB.getName() + ": " + thdB.isAlive() + ", " + thdB.getState());
