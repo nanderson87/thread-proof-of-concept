@@ -8,8 +8,8 @@ public class EjemploJoin {
 
   public static void main(String[] args) {
 
-    Runnable r100 = () -> result100 = sum(100);
-    Runnable r50 = () -> result50 = sum(50);
+    Runnable r100 = () -> result100 = sum(100); //5050
+    Runnable r50 = () -> result50 = sum(50); //1725
 
     Thread t1 = new Thread(r100);
     Thread t2 = new Thread(r50);

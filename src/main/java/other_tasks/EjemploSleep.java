@@ -18,7 +18,7 @@ public class EjemploSleep {
 
     try
     {
-      Thread.sleep(500);
+      Thread.sleep(10000); //Sleep 10 segundos
     }
     catch (InterruptedException ie)
     {

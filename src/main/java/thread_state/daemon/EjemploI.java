@@ -14,6 +14,8 @@ public class EjemploI {
             thd.getState());
     };
 
+    System.out.println("availableProcessors: " + Runtime.getRuntime().availableProcessors());
+
     Thread t1 = new Thread(r, "thd1");
     if (isDaemon) {
       t1.setDaemon(true);

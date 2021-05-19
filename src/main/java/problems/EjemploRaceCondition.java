@@ -1,5 +1,6 @@
 package problems;
 
+//check-then-act
 public class EjemploRaceCondition {
   private static int variableA = 5;
   private static int variableB = 10;
@@ -9,17 +10,20 @@ public class EjemploRaceCondition {
     Runnable r1 = () -> {
       System.out.println("variableA :" + variableA);
       System.out.println("variableB :" + variableB);
-      System.out.println("El resultado deberia ser: " + (variableB / variableA) );
-      System.out.println("resultado:" + (variableB / variableA));
+
+      if(variableA == 5 ) {
+        System.out.println("El resultado deberia ser: 5");
+        System.out.println("resultado final:" + (variableB / variableA));
+      }
     };
 
     Runnable r2 = () -> variableB = 5;
 
 
-    Thread t1 = new Thread(r1);
-    Thread t2 = new Thread(r2);
+    Thread th1 = new Thread(r1, "Th-1");
+    Thread th2 = new Thread(r2, "Th-2");
 
-    t1.start();
-    t2.start();
+    th1.start();
+    th2.start();
   }
 }
